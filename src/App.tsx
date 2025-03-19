@@ -17,6 +17,9 @@ import BrandIdentity from "./pages/services/BrandIdentity";
 import Activations from "./pages/services/Activations";
 import InfluencerMarketing from "./pages/services/InfluencerMarketing";
 import MediaProduction from "./pages/services/MediaProduction";
+import SummitTechConference from "./pages/portfolio/SummitTechConference";
+import UrbanEatsRebrand from "./pages/portfolio/UrbanEatsRebrand";
+import EcoMoveProductLaunch from "./pages/portfolio/EcoMoveProductLaunch";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/services/activations" element={<Activations />} />
           <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
           <Route path="/services/media-production" element={<MediaProduction />} />
+          <Route path="/portfolio/summit-tech-conference" element={<SummitTechConference />} />
+          <Route path="/portfolio/urban-eats-rebrand" element={<UrbanEatsRebrand />} />
+          <Route path="/portfolio/ecomove-product-launch" element={<EcoMoveProductLaunch />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/inquiries" element={<Inquiries />} />

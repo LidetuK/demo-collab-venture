@@ -9,6 +9,9 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ContactCTA from "@/components/home/ContactCTA";
 import Partners from "@/components/home/Partners";
 import Stats from "@/components/home/Stats";
+import Process from "@/components/home/Process";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import ClientsShowcase from "@/components/home/ClientsShowcase";
 
 const Index = () => {
   // Scroll to top on page load
@@ -23,8 +26,11 @@ const Index = () => {
         <Hero />
         <Partners />
         <Services />
+        <Process />
         <Stats />
         <FeaturedProjects />
+        <WhyChooseUs />
+        <ClientsShowcase />
         <Testimonials />
         <ContactCTA />
       </main>

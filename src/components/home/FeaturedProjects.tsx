@@ -29,21 +29,24 @@ const FeaturedProjects = () => {
       category: "Event Planning",
       description: "A tech industry conference with over 2,000 attendees, featuring interactive product showcases.",
       imageBg: "bg-gradient-to-br from-purple-500 to-blue-500",
-      delay: "0ms"
+      delay: "0ms",
+      link: "/portfolio/summit-tech-conference"
     },
     {
       title: "Urban Eats Rebrand",
       category: "Brand Identity",
       description: "Complete brand overhaul for a restaurant chain, resulting in 40% increased customer engagement.",
       imageBg: "bg-gradient-to-br from-orange-500 to-red-500",
-      delay: "150ms"
+      delay: "150ms",
+      link: "/portfolio/urban-eats-rebrand"
     },
     {
       title: "EcoMove Product Launch",
       category: "Experiential Marketing",
       description: "Interactive public installations in 5 major cities promoting a new eco-friendly transportation solution.",
       imageBg: "bg-gradient-to-br from-green-500 to-teal-500",
-      delay: "300ms"
+      delay: "300ms",
+      link: "/portfolio/ecomove-product-launch"
     }
   ];
 
@@ -70,7 +73,7 @@ const FeaturedProjects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 h-full ${
+              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 h-full transform hover:-translate-y-2 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
@@ -91,7 +94,7 @@ const FeaturedProjects = () => {
                 <div className="text-brand-blue font-semibold text-sm mb-2">{project.category}</div>
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <Link 
-                  to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={project.link}
                   className="inline-flex items-center text-brand-blue font-medium hover:text-brand-red transition-colors"
                 >
                   View Case Study <ArrowRight className="ml-2 w-4 h-4" />
