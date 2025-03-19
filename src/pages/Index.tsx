@@ -7,6 +7,8 @@ import Services from "@/components/home/Services";
 import Testimonials from "@/components/home/Testimonials";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ContactCTA from "@/components/home/ContactCTA";
+import Partners from "@/components/home/Partners";
+import Stats from "@/components/home/Stats";
 
 const Index = () => {
   // Scroll to top on page load
@@ -19,7 +21,9 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <Partners />
         <Services />
+        <Stats />
         <FeaturedProjects />
         <Testimonials />
         <ContactCTA />
