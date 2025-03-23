@@ -1,60 +1,49 @@
-
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Partners = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
+  const sliderRef = useRef(null);
+  
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('partners-section');
-      if (element) {
-        const position = element.getBoundingClientRect();
-        if (position.top < window.innerHeight - 100) {
-          setIsVisible(true);
+    const slider = sliderRef.current;
+    let animationFrame;
+
+    const moveSlider = () => {
+      if (slider) {
+        slider.scrollLeft += 1; // Adjust speed as needed
+        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+          slider.scrollLeft = 0;
         }
       }
+      animationFrame = requestAnimationFrame(moveSlider);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check visibility on mount
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    animationFrame = requestAnimationFrame(moveSlider);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   const partners = [
-    { name: "TechCorp", logo: "bg-gradient-to-br from-blue-500 to-blue-700" },
-    { name: "EcoGlobal", logo: "bg-gradient-to-br from-green-500 to-green-700" },
-    { name: "FashionHub", logo: "bg-gradient-to-br from-purple-500 to-purple-700" },
-    { name: "FoodDelight", logo: "bg-gradient-to-br from-yellow-500 to-yellow-700" },
-    { name: "UrbanMove", logo: "bg-gradient-to-br from-red-500 to-red-700" },
-    { name: "MediaPulse", logo: "bg-gradient-to-br from-indigo-500 to-indigo-700" },
+    "/1.png", "/3.png",
+    "/4.png", "/5.png", "/6.png",
+    "/7.png", "/9.png",
+    "/10.png",  "/12.png",
+    "/13.png", "/14.png",
+    "/16.png", "/17.png", "/18.png",
+    "/19.png", "/20.png", 
   ];
 
   return (
-    <section id="partners-section" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-xl font-semibold text-brand-blue mb-2">TRUSTED BY</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-brand-black">
-            Our Partners & Clients
-          </h3>
-          <div className="w-20 h-1 bg-brand-red mx-auto mt-6"></div>
-        </div>
+    <section className="py-16 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-xl font-semibold text-brand-blue mb-2">TRUSTED BY</h2>
+        <h3 className="text-3xl md:text-4xl font-bold text-brand-black">Our Partners & Clients</h3>
+        <div className="w-20 h-1 bg-brand-red mx-auto mt-6"></div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-10">
-          {partners.map((partner, index) => (
-            <div 
-              key={index}
-              className={`h-24 rounded-lg shadow-md flex items-center justify-center transition-all duration-500 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className={`w-16 h-16 rounded-full ${partner.logo} flex items-center justify-center text-white font-bold`}>
-                {partner.name.substring(0, 2)}
-              </div>
-              <span className="ml-2 font-semibold text-brand-black">{partner.name}</span>
-            </div>
+      <div className="relative mt-10 overflow-hidden">
+        <div ref={sliderRef} className="flex space-x-6 whitespace-nowrap w-full overflow-hidden">
+          {[...partners, ...partners].map((src, index) => (
+            <img key={index} src={src} alt="Partner Logo" className="h-24 w-auto object-contain" />
           ))}
         </div>
       </div>

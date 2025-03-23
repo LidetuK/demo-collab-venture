@@ -1,6 +1,7 @@
 
 import CaseStudyLayout from "@/components/portfolio/CaseStudyLayout";
-import { ChartIcon, Users, Zap, CheckCircle, ArrowUpRight } from "lucide-react";
+import { BarChart, Users, Zap, CheckCircle, ArrowUpRight } from "lucide-react";
+
 
 const SummitTechConference = () => {
   return (
@@ -77,7 +78,7 @@ const SummitTechConference = () => {
               
               <div className="bg-white p-8 rounded-xl shadow-sm animate-fade-in" style={{ animationDelay: "200ms" }}>
                 <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center">
-                  <ChartIcon className="w-6 h-6 text-brand-red mr-3" />
+                  <BarChart className="w-6 h-6 text-brand-red mr-3" />
                   Technology Integration
                 </h3>
                 <p className="text-gray-700 mb-4">
